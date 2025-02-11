@@ -221,7 +221,22 @@ void greenSlide(void){
 
 - Slider setXlimits/setYlimits <a name="slider-setxlimits"></a>
 
+By default, sliders scale from a minimum value of 0.0 to a maximum of 1.0. It is important to note that the limits of slider values are floating-point (**float**) numbers and not integers.
+You should set the X limits for horizontal sliders and Y limits for vertical sliders. For trackpads, you should set both.
+
+```cpp
+daq.slider[0].setYlimits(0.0, 63.0);
+```
+For a vertical slider, the value at the bottom is 0.0 and the value at the top is 63.0;
+
 - Slider setPosition <a name="slider-setposition"></a>
+
+```cpp
+daq.slider[0].setPosition(1.0, (float)greenValue);
+```
+For a vertical slider, the x-position should be 1.0 and the y-position should be the desired starting point.
+For a horizontal slider, the x-position should be the desired starting point and the y-position should be 1.0.
+For a trackpad, set both starting values.
 
 - Slider posX/posY <a name="slider-posx"></a>
 
