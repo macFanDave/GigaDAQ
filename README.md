@@ -9,6 +9,8 @@ This is a method to create an interactive user interface (UI) on the Arduino GIG
 2. [Percentage Concept](#percentage-concept)
 3. [Controls](#controls)
     1. [Text Boxes](#text-boxes)
+       * [Textbox Constructor](#textbox-constructor)
+       * [Textbox setDisplayText](#textbox-setdisplaytext)
     2. [Buttons](#buttons)
     3. [Sliders](#sliders)
 4. [User Interaction](#user-interaction)
@@ -44,6 +46,18 @@ These are created in the setup() step
 ### Text Boxes <a name="text-boxes"></a>
 
 Holds Text
+
+- Textbox Constructor <a name="textbox-constructor"></a>
+
+```cpp
+daq.textbox[0] = Textbox("Box name", 10, 5, 60, 22, BLACK, WHITE);
+```
+- Textbox setDisplayText() <a name="textbox-setdisplaytext"></a>
+
+```cpp
+daq.textbox[0].setDisplayText("New text string");
+```
+
 
 ### Buttons <a name="buttons"></a>
 
