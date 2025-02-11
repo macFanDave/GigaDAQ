@@ -113,6 +113,30 @@ The button has a width of 40% of the screen width and 20% of the screen height.
 
 The foreground (text) color is WHITE and the background color is RED.
 
+- Button setAction <a name="button-setaction"></a>
+
+```cpp
+daq.button[0].setAction(buttonAction);
+```
+*buttonAction* is a function of the form ```void buttonAction(void)```. This will execute every time a finger leaves a button (a button up action).
+
+If your buttons do very different things, it's better to write a separate function for each one. If they do similar things, you might like to write one function and use if-then-else logic to get the right action.
+
+Here is the function called by both buttons in the sketch:
+
+```cpp
+void buttonAction(void){
+  if(daq.previousEvent.name.equals("Down button")){
+    counter--;
+    daq.textbox[0].setDisplayText(String(counter));
+  }
+  else if(daq.previousEvent.name.equals("Up button")){
+    counter++;
+    daq.textbox[0].setDisplayText(String(counter));
+  }
+}
+```
+
 - Textbox setDisplayText() <a name="button-setdisplaytext"></a>
 
 ```cpp
