@@ -15,7 +15,11 @@ This is a method to create an interactive user interface (UI) on the Arduino GIG
         * [Button Constructor](#button-constructor)
         * [Button setAction](#button-setaction)
         * [Button setDisplayText](#button-setdisplaytext)
-    4. [Sliders](#sliders)
+    3. [Sliders](#sliders)
+        * [Slider Constructor](#slider-constructor)
+        * [Slider setMode](#slider-setmode)
+        * [Slider setAction](#slider-setaction)
+        
 4. [User Interaction](#user-interaction)
 5. [Data Logging](#data-logging)
 
@@ -62,6 +66,8 @@ The standard order to specify a rectangle is:
 A GigaDAQ object contains arrays of Button, Slider and Textbox objects that are all initialized with zero width and zero height.
 
 Buttons and Sliders are both *input* controls and Textboxes are *output* controls. 
+
+For most cases, you will lay out all of the controls and assign their actions in the ```setup()``` routine.
 
 You can add a name, x and y coordinates, height and width, background and foreground colors individually, but it is more convenient and compact to use a constructor to do all of that in a single line. These will be demonstrated for each control type.
 
@@ -137,7 +143,7 @@ void buttonAction(void){
 }
 ```
 
-- Textbox setDisplayText() <a name="button-setdisplaytext"></a>
+- Button setDisplayText() <a name="button-setdisplaytext"></a>
 
 ```cpp
 daq.button[0].setDisplayText("Decrease Value");
@@ -147,7 +153,56 @@ Assigns a **String** value to the dispText property of a button object. Since a 
 
 ### Sliders <a name="sliders"></a>
 
-Can be one or two dimensional
+Sliders are input controls that respond to finger drags (or swipes). The associated action occurs when the previous event and current event happen in the same slider at two different positions.
+
+- Slider Constructor <a name="slider-constructor"></a>
+
+```cpp
+daq.slider[0] = Slider("Green vert", 75, 2, 24, 80, GREEN, WHITE);
+```
+This creates a slider named "Green vert."
+
+The upper left corner of the button is 75% of the screen width from the left edge of the screen, and 2% of the screen height from the top edge.
+
+The slider has a width of 24% of the screen width and 80% of the screen height.
+
+The foreground color is GREEN and the background color is WHITE.
+
+- Slider setMode() <a name="slider-setmode"></a>
+
+```cpp
+daq.slider[0].setMode(VERTICAL);
+```
+Assigns a **SliderMode** value to the mode property of a slider object. The available modes are:
+
+HORIZONTAL    Wide, short slider where only the x-value changes (y stays at 1.0);
+VERTICAL      Tall, narrow slider where only the y-value changes (x stays at 1.0);
+TRACKPAD      Rectangular area when x- and y-values are both useful.
+
+- Slider setAction <a name="slider-setaction"></a>
+
+```cpp
+daq.slider[0].setAction(greenSlide);
+```
+*greenSlide* is a function of the form ```void greenSlide(void)```. This will execute every time a finger moves within this slider.
+
+Here is the function called by this slider:
+
+```cpp
+void greenSlide(void){
+  char textBuf[32];
+
+  greenValue = (uint16_t)(daq.slider[0].posY);
+  variableColor = mediumRed + greenValue*32 + blueValue*1;
+  daq.textbox[0].bgColor = variableColor;
+
+  snprintf(textBuf, 31, "B%d x G%d", blueValue, greenValue);
+  daq.textbox[0].setDisplayText(String(textBuf));
+}
+```
+
+
+
 
 ## User Interaction <a name="user-interaction"></a>
 
