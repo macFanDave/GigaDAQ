@@ -19,6 +19,9 @@ This is a method to create an interactive user interface (UI) on the Arduino GIG
         * [Slider Constructor](#slider-constructor)
         * [Slider setMode](#slider-setmode)
         * [Slider setAction](#slider-setaction)
+        * [Slider setXlimits/setYlimits](#slider-setxlimits)
+        * [Slider setPosition](#slider-setposition)
+        * [Slider posX/posY](#slider-posx)
         
 4. [User Interaction](#user-interaction)
 5. [Data Logging](#data-logging)
@@ -204,17 +207,23 @@ void greenSlide(void){
 ```
 > 🎵   **Note:** The code above uses some features in the C language that are useful on the Arduino GIGA. The ```snprintf()```
 > function requires a character (**char**) buffer and not a **String**. There are many sites and books that explain how
-> things work in C. Putting a data type in parentheses before a variable is used for *type-casting*.
+> things work in C. Learning about using format specifiers in the stdio.h library can be very helpful in composing complex output
+> strings in a single line of code.
 >
+> Putting a data type in parentheses before a variable is used for *type-casting*.
 > In the line:
 > ```cpp
 > greenValue = (uint16_t)(daq.slider[0].posY);
 > ```
-> 
 > I ask that the floating-point (**float**) value *posY* be converted to an unsigned 16-bit integer (**uint16_t**) before
 > being assigned to *greenValue*. Modern systems often handle these conversions automatically, but some of us still like to make
 > our intentions explicit.
 
+- Slider setXlimits/setYlimits <a name="slider-setxlimits"></a>
+
+- Slider setPosition <a name="slider-setposition"></a>
+
+- Slider posX/posY <a name="slider-posx"></a>
 
 
 ## User Interaction <a name="user-interaction"></a>
