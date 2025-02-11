@@ -155,6 +155,8 @@ Assigns a **String** value to the dispText property of a button object. Since a 
 
 Sliders are input controls that respond to finger drags (or swipes). The associated action occurs when the previous event and current event happen in the same slider at two different positions.
 
+Open example sketch **2-Sliders** to see the implementation of a horizontal and a vertical slider.
+
 - Slider Constructor <a name="slider-constructor"></a>
 
 ```cpp
@@ -200,7 +202,18 @@ void greenSlide(void){
   daq.textbox[0].setDisplayText(String(textBuf));
 }
 ```
-
+> 🎵   **Note:** The code above uses some features in the C language that are useful on the Arduino GIGA. The ```snprintf()```
+> function requires a character (**char**) buffer and not a **String**. There are many sites and books that explain how
+> things work in C. Putting a data type in parentheses before a variable is used for *type-casting*.
+>
+> In the line:
+> ```cpp
+> greenValue = (uint16_t)(daq.slider[0].posY);
+> ```
+> 
+> I ask that the floating-point (**float**) value *posY* be converted to an unsigned 16-bit integer (**uint16_t**) before
+> being assigned to *greenValue*. Modern systems often handle these conversions automatically, but some of us still like to make
+> our intentions explicit.
 
 
 
