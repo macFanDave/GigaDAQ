@@ -1,5 +1,5 @@
 # GigaDAQ
-DAQ library for Arduino GIGA with Display Shield
+DAQ library for Arduino GIGA with Display Shield.
 
 ## Table of Contents
 
