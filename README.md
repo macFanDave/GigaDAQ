@@ -1,6 +1,8 @@
 # GigaDAQ
 DAQ library for Arduino GIGA with Display Shield.
 
+This is a method to create an interactive user interface (UI) on the Arduino GIGA Display Shield in an Arduino sketch and connect it with all of the resources available to the Arduino GIGA R1 WiFi. It is able to read sensors, drive motors, regulate power to devices, communicate wirelessly, send and receive data through USB-A and USB-C port, and more. Here, we will show you how to create the UI in the `setup()` function of an Arduino sketch and control the event loop in the `loop()` function.
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
