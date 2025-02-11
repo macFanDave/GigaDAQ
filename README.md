@@ -56,8 +56,10 @@ The standard order to specify a rectangle is:
 
 ## Controls <a name="controls"></a>
 
-A GigaDAQ object contains arrays of Button, Slider and Textbox objects that are all initialized with zero width and zero height. 
+A GigaDAQ object contains arrays of Button, Slider and Textbox objects that are all initialized with zero width and zero height.
+
 Buttons and Sliders are both *input* controls and Textboxes are *output* controls. 
+
 You can add a name, x and y coordinates, height and width, background and foreground colors individually, but it is more convenient and compact to use a constructor to do all of that in a single line. These will be demonstrated for each control type.
 
 ### Text Boxes <a name="text-boxes"></a>
@@ -70,8 +72,11 @@ Holds Text
 daq.textbox[0] = Textbox("Box name", 10, 5, 60, 22, BLACK, WHITE);
 ```
 This creates a text box named "Box name." (Note: Characters within quotation marks (") are **String** objects.)
+
 The upper left corner of the box is 10% of the screen width from the left edge of the screen, and 5% of the screen height from the top edge.
+
 The text box has a width of 60% of the screen width and 22% of the screen height.
+
 The foreground (text) color is BLACK and the background color is WHITE.
 
 - Textbox setDisplayText() <a name="textbox-setdisplaytext"></a>
@@ -81,6 +86,7 @@ daq.textbox[0].setDisplayText("New text string");
 ```
 Assigns a **String** value to the dispText property of a textbox object.
 It is important to use this function to change the text field since it assigns the existing value to the previous display text property before it updates the current value. This is necessary to signal that the textbox needs to be redrawn.
+
 Numbers and C-style strings need to be converted to **String** types using the ```String()``` function.
 
 ### Buttons <a name="buttons"></a>
