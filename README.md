@@ -106,7 +106,7 @@ daq.textbox[0] = Textbox("Time Display", 5, 20, 90, 15, BLACK, WHITE);
 - The text box has a width of 90% of the screen width and 15% of the screen height.
 -  The foreground (text) color is BLACK and the background color is WHITE.
 
-##Textbox setDisplayText() <a name="textbox-setdisplaytext"></a>
+## Textbox setDisplayText() <a name="textbox-setdisplaytext"></a>
 
 ```cpp
 daq.textbox[0].setDisplayText("00:00:00");
@@ -127,7 +127,7 @@ In modern UIs, the action that actually triggers the related action to occur is 
 
 Open example sketch **1-Buttons** to see how to create and use buttons. You can see how to associate buttons with actions, where actions must be functions of the form `void function(void)`.
 
-##Button() Constructor <a name="button-constructor"></a>
+## Button() Constructor <a name="button-constructor"></a>
 
 ```cpp
 daq.button[0] = Button("Down button", 5, 40, 40, 20, WHITE, RED);
@@ -137,7 +137,7 @@ daq.button[0] = Button("Down button", 5, 40, 40, 20, WHITE, RED);
 3. The button has a width of 40% of the screen width and 20% of the screen height.
 - The foreground (text) color is WHITE and the background color is RED.
 
-##Button setAction() <a name="button-setaction"></a>
+## Button setAction() <a name="button-setaction"></a>
 
 ```cpp
 daq.button[0].setAction(buttonAction);
@@ -161,7 +161,7 @@ void buttonAction(void){
 }
 ```
 
-##Button setDisplayText() <a name="button-setdisplaytext"></a>
+## Button setDisplayText() <a name="button-setdisplaytext"></a>
 
 ```cpp
 daq.button[0].setDisplayText("Decrease Value");
@@ -202,7 +202,7 @@ HORIZONTAL | Wide, short slider where only the x-value changes (y stays at 1.0)
 VERTICAL | Tall, narrow slider where only the y-value changes (x stays at 1.0)
 TRACKPAD | Rectangular area when x- and y-values are both useful.
 
-##Slider setAction() <a name="slider-setaction"></a>
+## Slider setAction() <a name="slider-setaction"></a>
 
 ```cpp
 daq.slider[0].setAction(greenSlide);
@@ -238,7 +238,7 @@ void greenSlide(void){
 > being assigned to *greenValue*. Modern systems often handle these conversions automatically, but some of us still like to make
 > our intentions explicit.
 
-##Slider setXlimits()/setYlimits() <a name="slider-setxlimits"></a>
+## Slider setXlimits()/setYlimits() <a name="slider-setxlimits"></a>
 
 By default, sliders scale from a minimum value of 0.0 to a maximum of 1.0. It is important to note that the limits of slider values are floating-point (**float**) numbers and not integers.
 You should set the X limits for horizontal sliders and Y limits for vertical sliders. For trackpads, you should set both.
@@ -257,7 +257,7 @@ For a vertical slider, the x-position should be 1.0 and the y-position should be
 For a horizontal slider, the x-position should be the desired starting point and the y-position should be 1.0.
 For a trackpad, set both starting values.
 
-##Slider posX/posY <a name="slider-posx"></a>
+## Slider posX/posY <a name="slider-posx"></a>
 
 The current x or y position of the slider is found in the `posX` or `posY` properties.  
 
@@ -272,7 +272,7 @@ Once the UI is created in the `setup()` routine, it is time to go into the `loop
 
 Once the `loop` is entered, it repeats until the power is cut or a new sketch is uploaded. Arduinos can cycle their loops thousands of times a second and calling functions every time can generate excessive data or even spurious results. One must exercise judgment as to how much information is appropriate.
 
-##GigaDAQ handleInputs()<a name="gigadaq-handle-inputs"></a>
+## GigaDAQ handleInputs()<a name="gigadaq-handle-inputs"></a>
 
 ```cpp
 daq.handleInputs();
@@ -285,7 +285,7 @@ This function polls (requests data) from the touch screen and records the event 
 
 This function interprets events and triggers input device actions. If the current event is a NOTHING and the previous one is a BUTTON, then that Button's action, a button up, is called. If the current and previous events are both in the same Slider, a Slider move event is initiated.
 
-##Calling Functions at Intervals<a name="calling-functions-at-intervals"></a>
+## Calling Functions at Intervals<a name="calling-functions-at-intervals"></a>
 
 One way to control the flow of data is to use the built-in timer to indicate when to call a function. For most applications, the `millis()` function is optimal. It reports the number of milliseconds elapsed since the sketch started as an unsigned long integer (**uint32_t**), a number that ranges from 0 to 4,294,967,295 (It "rolls over" after about 49 days.)
 
@@ -321,7 +321,7 @@ if(currentTime - previousTime >= UI_INTERVAL){
 > 🎵 **NOTE:** If your interval is long and you would like to call that function as soon as the `loop()` starts, you can set *previousTime* in the `setup()` to something like 4,295,000,000 to get a first call to the function immediately.
 > `previousTime = 4295000000`
 
-##GigaDAQ updateDisplays()<a name="gigadaq-update-displays"></a>
+## GigaDAQ updateDisplays()<a name="gigadaq-update-displays"></a>
 
 ```cpp
 daq.updateDisplays();
@@ -332,13 +332,13 @@ The underlying logic is that if the *dispText* and *prevDispText* of an output c
 
 ***
 
-#Data Logging<a name="data-logging"></a>
+# Data Logging<a name="data-logging"></a>
 
 An essential feature of a data acquisition system is the ability to store data to a file for later processing. The Arduino GIGA R1 WiFi has a USB-A port which can be used with a thumb drive to record data.
 
 Open example sketch **3-Trackpad\_with\_Datalogging** to see how to log data to a flash drive with an example using a Slider in trackpad mode. Also, this sketch demonstrates using a Button as a toggle switch.
 
-##Connecting to a Flash Drive<a name="connecting-to-a-flash-drive"></a>
+## Connecting to a Flash Drive<a name="connecting-to-a-flash-drive"></a>
 
 
 Before the `setup()` routine, add this code:
@@ -369,7 +369,7 @@ do{
 }while(msdConnected == false && i < 10); 
 err = usb.mount(&msd); 
 ```
-##GigaDAQ startDataRecording()<a name="gigadaq-startdatarecording"></a>
+## GigaDAQ startDataRecording()<a name="gigadaq-startdatarecording"></a>
 
 ```cpp
 daq.startDataRecording("TrackpadDemo.csv");
@@ -380,7 +380,7 @@ The file name is a **String** and will create a file at the top level of the dir
 
 The data files are created in *append* mode, meaning that the file will be created if it doesn't exist, but if it does exist, data will be appended to the existing file and not overwrite it.
 
-##Write Data to File<a name="write-data-to-file"></a>
+## Write Data to File<a name="write-data-to-file"></a>
 
 In the stdio.h library, there are several functions to write data to a file, like fputs() and fwrite(). Perhaps the simplest for writing formatted text to a file is fprintf().
 
@@ -395,14 +395,14 @@ The second argument is the format string, which contains format codes or specifi
 
 The number of percent signs (%) in the format string determines how many arguments go in the third position and after.
  
-##GigaDAQ endDataRecording()<a name="gigadaq-enddatarecording"></a>
+## GigaDAQ endDataRecording()<a name="gigadaq-enddatarecording"></a>
 
 ```cpp
 daq.endDataRecording();
 ```
 This step is required to make your data file useful. Without doing this, it is likely that your flash drive will contain arbitrary junk.
 
-##Using a Button as a Toggle Switch<a name="button-as-toggle-switch"></a>
+## Using a Button as a Toggle Switch<a name="button-as-toggle-switch"></a>
 
 Instead of programming one button to start data recording and another one to end it, we can program a single button to toggle between the two actions.
 
@@ -432,7 +432,7 @@ Since buttons are input controls, the redraw `daq.drawButton()` function must be
 
 ***
 
-#🔮Future Enhancements<a name="future-enhancements"></a>
+# 🔮Future Enhancements<a name="future-enhancements"></a>
 
 I have released the GigaDAQ library in a simple, but useful form.
 
