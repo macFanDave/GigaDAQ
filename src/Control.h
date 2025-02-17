@@ -37,10 +37,10 @@ SOFTWARE.
 #include "Arduino.h"
 #include <Arduino_GigaDisplay_GFX.h>
 #include <Arduino_GigaDisplayTouch.h>
-#include <Fonts/FreeMono9pt7b.h>
-#include <Fonts/FreeMono12pt7b.h>
-#include <Fonts/FreeMono18pt7b.h>
-#include <Fonts/FreeMono24pt7b.h>
+#include <Fonts/FreeMonoBold9pt7b.h>
+#include <Fonts/FreeMonoBold12pt7b.h>
+#include <Fonts/FreeMonoBold18pt7b.h>
+#include <Fonts/FreeMonoBold24pt7b.h>
 
 /** Pre-defined colors */
 const uint16_t CYAN  = 0x07FF;	///< cyan color (16-bit unsigned integer, 5-6-5 format)

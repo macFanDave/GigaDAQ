@@ -119,19 +119,19 @@ void GigaDAQ::drawButton(int num){
 		
 		switch(mbb.fontSize){
 			case MONO9PT:
-				canvas.setFont(&FreeMono9pt7b);
+				canvas.setFont(&FreeMonoBold9pt7b);
 				break;
 			case MONO12PT:
-				canvas.setFont(&FreeMono12pt7b);
+				canvas.setFont(&FreeMonoBold12pt7b);
 				break;
 			case MONO18PT:
-				canvas.setFont(&FreeMono18pt7b);
+				canvas.setFont(&FreeMonoBold18pt7b);
 				break;
 			case MONO24PT:
-				canvas.setFont(&FreeMono24pt7b);
+				canvas.setFont(&FreeMonoBold24pt7b);
 				break;
 			default:
-				canvas.setFont(&FreeMono9pt7b);
+				canvas.setFont(&FreeMonoBold9pt7b);
 				break;
 		}
 		canvas.setCursor((cw-mbb.w)/2, ch - (ch-mbb.h)/2);  //Center the text within the button
@@ -199,19 +199,19 @@ void GigaDAQ::drawTextbox(int num){ //see drawButton() method for ideas that are
 		
 		switch(mbb.fontSize){
 			case MONO9PT:
-				canvas.setFont(&FreeMono9pt7b);
+				canvas.setFont(&FreeMonoBold9pt7b);
 				break;
 			case MONO12PT:
-				canvas.setFont(&FreeMono12pt7b);
+				canvas.setFont(&FreeMonoBold12pt7b);
 				break;
 			case MONO18PT:
-				canvas.setFont(&FreeMono18pt7b);
+				canvas.setFont(&FreeMonoBold18pt7b);
 				break;
 			case MONO24PT:
-				canvas.setFont(&FreeMono24pt7b);
+				canvas.setFont(&FreeMonoBold24pt7b);
 				break;
 			default:
-				canvas.setFont(&FreeMono9pt7b);
+				canvas.setFont(&FreeMonoBold9pt7b);
 				break;
 		}
 		canvas.setCursor((cw-mbb.w)/2, ch - (ch-mbb.h)/2);
