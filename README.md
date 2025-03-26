@@ -16,12 +16,16 @@ This is a method to create an interactive user interface (UI) on the Arduino GIG
         * [Button setAction](#button-setaction)
         * [Button setDisplayText](#button-setdisplaytext)
     3. [Sliders](#sliders)
-        * [Slider Constructor](#slider-constructor)
+   	 * [Slider Constructor](#slider-constructor)
         * [Slider setMode](#slider-setmode)
         * [Slider setAction](#slider-setaction)
         * [Slider setXlimits/setYlimits](#slider-setxlimits)
         * [Slider setPosition](#slider-setposition)
         * [Slider posX/posY](#slider-posx)
+    5. [Gauges](#gauges)
+    6. [Graphs](#graphs)
+        
+
         
 4. [User Interaction](#user-interaction)
      * [GigaDAQ handleInputs](#gigadaq-handle-inputs)
